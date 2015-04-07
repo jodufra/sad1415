@@ -9,7 +9,7 @@ DROP TABLE t_info_extractions;
 DROP TABLE t_data_avaliacoes;
 DROP TABLE t_data_cursos;
 DROP TABLE t_data_estudantes;
-DROP TABLE t_data_inscricoe;
+DROP TABLE t_data_inscricoes;
 DROP TABLE t_data_planos;
 DROP TABLE t_data_ramos;
 DROP TABLE t_data_unidades_curriculares;
