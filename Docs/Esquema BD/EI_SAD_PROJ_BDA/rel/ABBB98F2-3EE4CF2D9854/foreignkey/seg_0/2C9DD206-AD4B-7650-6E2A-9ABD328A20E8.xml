@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2C9DD206-AD4B-7650-6E2A-9ABD328A20E8" name="FK_BDAINSCRICOES_DISCIPLINA">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>FK_BDAINSCRICOES_DISCIPLINA</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:16 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<containerWithKeyObject>AFDD1520-FE5F-4328-F732-CB3A093DF04C</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>A5F828A6-8A40-F110-68A2-A1E36A7F46EB</localFKIndex>
+<keyObject>92B2A703-556D-36A0-F0EF-FA241B99D6B8</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

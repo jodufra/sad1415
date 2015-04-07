@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6D30248B-B8AF-4B7F-49D1-F136DDB7740B" name="T_BDA_UNIDADES_ORGANICAS">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>T_BDA_UNIDADES_ORGANICAS</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_INSTITUIC" id="4974D992-210E-EA82-4E1C-C871FD54EBF7">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_UNIDADES_ORGANICAS</sourceObjSchema>
+<sourceObjName>CD_INSTITUIC</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_INSTITUIC" id="DF159A57-C1A6-244D-7BD8-1B05B440ADF7">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_UNIDADES_ORGANICAS</sourceObjSchema>
+<sourceObjName>DS_INSTITUIC</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_INST_ABR" id="5391049A-CB98-C03B-8E1A-745AEBAC5FAC">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_UNIDADES_ORGANICAS</sourceObjSchema>
+<sourceObjName>DS_INST_ABR</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2F4FDAAE-EC43-AD58-6FD0-8A92E53E3276" name="PK_BDAINSTITUICOES">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>PK_BDAINSTITUICOES</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:15 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4974D992-210E-EA82-4E1C-C871FD54EBF7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2E6E4658-7F14-11D3-4571-376789954BA4" name="PK_BDAINSTITUICOES">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>PK_BDAINSTITUICOES</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:14 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4974D992-210E-EA82-4E1C-C871FD54EBF7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

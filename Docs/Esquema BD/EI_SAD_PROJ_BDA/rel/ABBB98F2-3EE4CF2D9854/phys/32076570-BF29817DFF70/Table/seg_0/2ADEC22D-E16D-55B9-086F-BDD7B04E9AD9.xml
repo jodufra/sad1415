@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="T_BDA_CURSOS" directorySegmentName="seg_0" id="2ADEC22D-E16D-55B9-086F-BDD7B04E9AD9">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:12 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>500649E3-E66A-A81B-E9E6-36210549D353</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_BDACURSOS" id="FE01DB53-8095-E3BC-E9A3-CEA9348DDC4E">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:14 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<segment>C189140A-6508-316F-84FD-A9C6A71A17AB</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+</IndexProxy>
+</indexProxies>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CD_INSTITUIC" id="30D0115E-0738-BE18-EFFA-DFF1E8F1C9C1">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_OFICIAL" id="424232E9-DE0F-2CA4-4BBE-9777AB548BBC">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_CURSO" id="5F0ACF02-695E-F13C-2DBE-1C53B8037538">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DS_GRAU" id="74EFB6D4-4955-C40B-54D9-F0B823590210">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_ACTIVO" id="83D8270A-23F7-871B-73D1-A63569131A46">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DS_AREA_ESTUDO" id="8DD71C57-852F-0414-AE79-5ACB8430AD1A">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NM_CUR_ABR" id="D82225C9-10EC-E122-8F01-689BA9F5FEF9">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_REGIME" id="DAED8159-1296-EE13-015E-2276AF274A4F">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_BOLONHA" id="DE0C2030-4715-1017-12B6-2477D8EA741C">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NM_CURSO" id="E22C00D4-50D5-8F92-B0FF-6F40320B6BD8">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_BDACURSOS_CDINSTITUIC" id="52B45C52-28A1-745A-E284-D2F01F3D8347">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:16 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_BDACURSOS" id="6035A81B-2F4F-E4E8-5987-D6B3C57148E1">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:15 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<segment>C189140A-6508-316F-84FD-A9C6A71A17AB</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+<existingIndex>FE01DB53-8095-E3BC-E9A3-CEA9348DDC4E</existingIndex>
+<indexSegment>C189140A-6508-316F-84FD-A9C6A71A17AB</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

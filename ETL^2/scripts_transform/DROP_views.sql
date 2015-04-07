@@ -1,0 +1,1 @@
+DROP VIEW view_screens_ultima_iteracao;

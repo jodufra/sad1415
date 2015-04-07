@@ -1,0 +1,217 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A6EB5C59-3289-1688-4E47-1B3B3B84BE75" name="T_BDA_AVALIACOES">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>T_BDA_AVALIACOES</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:12 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_LECTIVO" id="FA9854F9-A585-8C06-EEEA-26ABC94E76D2">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>CD_LECTIVO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CD_DURACAO" id="12D05872-45DB-CAF1-8213-F81CAF8B9015">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>CD_DURACAO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CD_ALUNO" id="D67A4535-6242-DACD-9196-23620A3932E3">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>CD_ALUNO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>B30887FC-F774-6166-C02B-0661C5CA3F6A</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4EE381D1-421E-272D-B54F-EAEA6283B79C" referredColumn="B30887FC-F774-6166-C02B-0661C5CA3F6A"/>
+</associations>
+</Column>
+<Column name="CD_CURSO_ALUNO" id="069FFA64-736B-5B8E-1A91-556DEDC46CB3">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>CD_CURSO_ALUNO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>2F67ACC6-34C6-6D30-75DA-4524B0298D6B</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4EE381D1-421E-272D-B54F-EAEA6283B79C" referredColumn="2F67ACC6-34C6-6D30-75DA-4524B0298D6B"/>
+</associations>
+</Column>
+<Column name="CD_DISCIP" id="196E3703-F2D9-F114-DCA0-6157E035D71A">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>CD_DISCIP</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>664E0FBF-146C-B05B-5630-C70BBCC1E1D0</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4E93B93A-72F6-265F-FE5E-631D9127643A" referredColumn="664E0FBF-146C-B05B-5630-C70BBCC1E1D0"/>
+</associations>
+</Column>
+<Column name="CD_PLANO" id="16EAD541-C894-19F9-4C44-A0A6120F49F6">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>CD_PLANO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>DB7C58F4-1576-BA1B-4A3B-624CD4991300</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4E93B93A-72F6-265F-FE5E-631D9127643A" referredColumn="DB7C58F4-1576-BA1B-4A3B-624CD4991300"/>
+</associations>
+</Column>
+<Column name="CD_EPOCA_AVAL" id="B157EBBE-F874-C761-5B88-F277BE1BD26E">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>CD_EPOCA_AVAL</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_EPOCA_AVAL" id="94F82608-E718-DB9E-19BE-ADB9F3AFBAA3">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>DS_EPOCA_AVAL</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NR_AVALIA" id="433AA2F3-A615-590C-A4FA-22E2D54B3F21">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_AVALIACOES</sourceObjSchema>
+<sourceObjName>NR_AVALIA</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BA514177-A970-8A0A-5321-EE6FD42126DA" name="PK_BDAAVALIACOES">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>PK_BDAAVALIACOES</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:15 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA9854F9-A585-8C06-EEEA-26ABC94E76D2"/>
+<colUsage columnID="D67A4535-6242-DACD-9196-23620A3932E3"/>
+<colUsage columnID="069FFA64-736B-5B8E-1A91-556DEDC46CB3"/>
+<colUsage columnID="196E3703-F2D9-F114-DCA0-6157E035D71A"/>
+<colUsage columnID="16EAD541-C894-19F9-4C44-A0A6120F49F6"/>
+<colUsage columnID="B157EBBE-F874-C761-5B88-F277BE1BD26E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E8FD04C3-7DEE-373E-F449-7E1EC4C221F2" name="PK_BDAAVALIACOES">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>PK_BDAAVALIACOES</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA9854F9-A585-8C06-EEEA-26ABC94E76D2"/>
+<colUsage columnID="D67A4535-6242-DACD-9196-23620A3932E3"/>
+<colUsage columnID="069FFA64-736B-5B8E-1A91-556DEDC46CB3"/>
+<colUsage columnID="196E3703-F2D9-F114-DCA0-6157E035D71A"/>
+<colUsage columnID="16EAD541-C894-19F9-4C44-A0A6120F49F6"/>
+<colUsage columnID="B157EBBE-F874-C761-5B88-F277BE1BD26E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D09FFF17-05C5-B7EF-F588-4DA0FFD77BC9" name="FK_BDAAVALIACOES_CURSOALUNO">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:16 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D67A4535-6242-DACD-9196-23620A3932E3"/>
+<colUsage columnID="069FFA64-736B-5B8E-1A91-556DEDC46CB3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="53E91BF9-5C99-27FC-9A1C-696507F854DA" name="FK_BDAAVALIACOES_DISCIPLINA">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:16 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="16EAD541-C894-19F9-4C44-A0A6120F49F6"/>
+<colUsage columnID="196E3703-F2D9-F114-DCA0-6157E035D71A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

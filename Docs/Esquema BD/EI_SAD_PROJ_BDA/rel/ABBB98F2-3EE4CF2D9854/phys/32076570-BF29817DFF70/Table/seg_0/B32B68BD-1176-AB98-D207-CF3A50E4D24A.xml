@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="T_BDA_PLANOS" directorySegmentName="seg_0" id="B32B68BD-1176-AB98-D207-CF3A50E4D24A">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:12 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>500649E3-E66A-A81B-E9E6-36210549D353</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_BDAPLANOS" id="27A0DB01-986F-3725-EB92-2C7EE9B3AE52">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:14 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<segment>C189140A-6508-316F-84FD-A9C6A71A17AB</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+</IndexProxy>
+</indexProxies>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NR_ECTS_CURSO" id="113D741B-CAFD-0DB0-6A8A-12A4A0CD63BE">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_CURSO" id="1DC12151-34A9-0DF5-B101-CBCCAFED4933">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NM_PLANO" id="6436F241-A026-29EF-0729-FDEEF4860240">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NR_DURACAO_CURSO" id="AA34CE2B-E88A-3A28-3455-77EA0996FF6C">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_ACTIVO" id="EA3616EE-16CA-7027-C39C-3DFEBD520E2E">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_PLANO" id="FDB97453-97FE-338E-705D-0B0590C97F22">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_BDAPLANOS_CURSO" id="1EB9AECB-235B-6452-4EA3-5614CD41F3EE">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:16 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_BDAPLANOS" id="ED5EC50A-A970-6123-1EAE-8AB5A35AF99E">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:15 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<segment>C189140A-6508-316F-84FD-A9C6A71A17AB</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+<existingIndex>27A0DB01-986F-3725-EB92-2C7EE9B3AE52</existingIndex>
+<indexSegment>C189140A-6508-316F-84FD-A9C6A71A17AB</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

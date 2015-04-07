@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="T_BDA_UNIDADES_CURRICULARES" directorySegmentName="seg_0" id="D6600D2D-9696-DF3A-CD9F-15CFE20092A7">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:12 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>500649E3-E66A-A81B-E9E6-36210549D353</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_BDAUNIDADESCURRICULARES" id="03C3C501-ED81-54D0-FB41-74D153E3EF9A">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:14 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<segment>C189140A-6508-316F-84FD-A9C6A71A17AB</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+</IndexProxy>
+</indexProxies>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CD_DURACAO" id="2B21C089-A0BC-AAAB-2506-ACE3D54CAF61">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DS_ABREVIATURA" id="3CE91E41-BA97-83D2-86F1-60D5EFF4DF75">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DS_DISCIP" id="46FA9AF1-EA92-5C62-7FE5-C386A88A72E2">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_RAMO" id="4996E878-990C-76A8-5B5F-15E0B9E3C9F8">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_DISCIP" id="664E0FBF-146C-B05B-5630-C70BBCC1E1D0">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_CURSO" id="92B09E40-F1EE-5C90-0935-1B1E5396DD5A">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CD_PLANO" id="DB7C58F4-1576-BA1B-4A3B-624CD4991300">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_BDAUCS_CURSOPLANORAMO" id="A0E5449A-D4FC-D360-4095-ADBF87FB1838">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:16 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_BDAUNIDADESCURRICULARES" id="92B2A703-556D-36A0-F0EF-FA241B99D6B8">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:15 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<segment>C189140A-6508-316F-84FD-A9C6A71A17AB</segment>
+<tableSpace>E2A80456-FCB9-66FB-8DC0-8E9BBE3A2330</tableSpace>
+<existingIndex>03C3C501-ED81-54D0-FB41-74D153E3EF9A</existingIndex>
+<indexSegment>C189140A-6508-316F-84FD-A9C6A71A17AB</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

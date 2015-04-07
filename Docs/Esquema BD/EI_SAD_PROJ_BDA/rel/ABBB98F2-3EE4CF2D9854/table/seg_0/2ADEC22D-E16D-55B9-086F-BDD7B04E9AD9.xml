@@ -1,0 +1,198 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2ADEC22D-E16D-55B9-086F-BDD7B04E9AD9" name="T_BDA_CURSOS">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>T_BDA_CURSOS</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:12 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_CURSO" id="5F0ACF02-695E-F13C-2DBE-1C53B8037538">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>CD_CURSO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CD_OFICIAL" id="424232E9-DE0F-2CA4-4BBE-9777AB548BBC">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>CD_OFICIAL</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NM_CURSO" id="E22C00D4-50D5-8F92-B0FF-6F40320B6BD8">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>NM_CURSO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NM_CUR_ABR" id="D82225C9-10EC-E122-8F01-689BA9F5FEF9">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>NM_CUR_ABR</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CD_INSTITUIC" id="30D0115E-0738-BE18-EFFA-DFF1E8F1C9C1">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>CD_INSTITUIC</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>4974D992-210E-EA82-4E1C-C871FD54EBF7</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B4EC2CD8-2E06-A643-D374-F85257C68DDE" referredColumn="4974D992-210E-EA82-4E1C-C871FD54EBF7"/>
+</associations>
+</Column>
+<Column name="CD_REGIME" id="DAED8159-1296-EE13-015E-2276AF274A4F">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>CD_REGIME</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_AREA_ESTUDO" id="8DD71C57-852F-0414-AE79-5ACB8430AD1A">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>DS_AREA_ESTUDO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_GRAU" id="74EFB6D4-4955-C40B-54D9-F0B823590210">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>DS_GRAU</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CD_ACTIVO" id="83D8270A-23F7-871B-73D1-A63569131A46">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>CD_ACTIVO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CD_BOLONHA" id="DE0C2030-4715-1017-12B6-2477D8EA741C">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_CURSOS</sourceObjSchema>
+<sourceObjName>CD_BOLONHA</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6035A81B-2F4F-E4E8-5987-D6B3C57148E1" name="PK_BDACURSOS">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>PK_BDACURSOS</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:15 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5F0ACF02-695E-F13C-2DBE-1C53B8037538"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FE01DB53-8095-E3BC-E9A3-CEA9348DDC4E" name="PK_BDACURSOS">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>PK_BDACURSOS</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:14 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5F0ACF02-695E-F13C-2DBE-1C53B8037538"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="52B45C52-28A1-745A-E284-D2F01F3D8347" name="FK_BDACURSOS_CDINSTITUIC">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:16 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="30D0115E-0738-BE18-EFFA-DFF1E8F1C9C1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

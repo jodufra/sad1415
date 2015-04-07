@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="EI_SAD_PROJ_BDA" directorySegmentName="seg_0" id="1AF8188E-4106-98C6-DB75-04518E12B419">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:12 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<importedID>5360BE54-B548-A136-E5A8-A40AB74EE197</importedID>
+</SchemaObject>

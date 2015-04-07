@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9E215F66-D86C-4F9D-4683-AA1E3E9889A7" name="T_BDA_ESTUDANTES">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>T_BDA_ESTUDANTES</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:12 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_CURSO" id="2F67ACC6-34C6-6D30-75DA-4524B0298D6B">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_ESTUDANTES</sourceObjSchema>
+<sourceObjName>CD_CURSO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>5F0ACF02-695E-F13C-2DBE-1C53B8037538</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5FAF6F6-F058-8BB6-A096-48D5C0EA50E7" referredColumn="5F0ACF02-695E-F13C-2DBE-1C53B8037538"/>
+</associations>
+</Column>
+<Column name="CD_ALUNO" id="B30887FC-F774-6166-C02B-0661C5CA3F6A">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>T_BDA_ESTUDANTES</sourceObjSchema>
+<sourceObjName>CD_ALUNO</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:13 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EE27D442-4EC5-45C5-6C3A-2F2B0530F6AC" name="PK_BDAESTUDANTES">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>PK_BDAESTUDANTES</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:15 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B30887FC-F774-6166-C02B-0661C5CA3F6A"/>
+<colUsage columnID="2F67ACC6-34C6-6D30-75DA-4524B0298D6B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8AB59903-07F5-77BA-422E-C16A1C911087" name="PK_BDAESTUDANTES">
+<sourceConnName>SAD_Projecto</sourceConnName>
+<sourceObjSchema>EI_SAD_PROJ_BDA</sourceObjSchema>
+<sourceObjName>PK_BDAESTUDANTES</sourceObjName>
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:14 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B30887FC-F774-6166-C02B-0661C5CA3F6A"/>
+<colUsage columnID="2F67ACC6-34C6-6D30-75DA-4524B0298D6B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5BA11D99-B87D-2BA0-6B66-1375011663C7" name="FK_BDAESTUDANTES_CURSO">
+<createdBy>Joel</createdBy>
+<createdTime>2015-03-14 19:19:16 UTC</createdTime>
+<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2F67ACC6-34C6-6D30-75DA-4524B0298D6B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
