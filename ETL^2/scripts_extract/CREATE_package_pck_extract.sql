@@ -3,8 +3,6 @@ CREATE OR REPLACE PACKAGE pck_extract IS
    PROCEDURE read_file(p_dir VARCHAR2, p_file_name VARCHAR2);
 END pck_extract;
 /
-
-
 create or replace PACKAGE BODY pck_extract IS
 
    e_extraction EXCEPTION;
@@ -78,6 +76,9 @@ create or replace PACKAGE BODY pck_extract IS
             pck_log.write_log('Error: could not delete previous initialization data ['||sqlerrm||'].');
             RAISE e_extraction;
       END;
+      
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_UNIDADES_CURRICULARES');
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_UNIDADES_ORGANICAS');
 
       --#INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'view_produtos@DBLINK_SADSB');
       --#INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'view_promocoes@DBLINK_SADSB');
@@ -123,7 +124,7 @@ create or replace PACKAGE BODY pck_extract IS
        --    ---------------------
       IF v_start_date IS NULL THEN
           -- FIND THE DATE OF CHANGE OF THE MOST RECENTLY CHANGED RECORD IN THE SOURCE TABLE
-          v_sql:='SELECT MAX(SRC_LAST_CHANGED) FROM '||p_source_table;
+          v_sql:='SELECT MAX(LAST_CHANGED) FROM '||p_source_table;
           EXECUTE IMMEDIATE v_sql INTO v_end_date;
 
           -- EXTRACT ALL RELEVANT RECORDS FROM THE SOURCE TABLE TO THE DSA
@@ -135,15 +136,15 @@ create or replace PACKAGE BODY pck_extract IS
           EXECUTE IMMEDIATE v_sql USING v_end_date;
        ELSE
        --    -------------------------------------
-       --   |  OTHER EXTRACTIONS AFTER THE FIRST  |
+       --   |  OTHER EXTRACTIONS AFTER THE FIRST  | 
        --    -------------------------------------
           -- FIND THE DATE OF CHANGE OF THE MOST RECENTLY CHANGED RECORD IN THE SOURCE TABLE
-          v_sql:='SELECT MAX(SRC_LAST_CHANGED) FROM '||p_source_table;
+          v_sql:='SELECT MAX(LAST_CHANGED) FROM '||p_source_table;
           EXECUTE IMMEDIATE v_sql INTO v_end_date;
 
           IF v_end_date>v_start_date THEN
              -- EXTRACT ALL RELEVANT RECORDS FROM THE SOURCE TABLE TO THE DSA
-             v_sql:='INSERT INTO '||p_DSA_table||'('|| p_attributes_dest||')   (SELECT '||p_attributes_src||' FROM '||p_source_table||'  WHERE SRC_LAST_CHANGED > :v_start_date AND SRC_LAST_CHANGED <= :v_end_date)';
+             v_sql:='INSERT INTO '||p_DSA_table||'('|| p_attributes_dest||')   (SELECT '||p_attributes_src||' FROM '||p_source_table||'  WHERE LAST_CHANGED > :v_start_date AND LAST_CHANGED <= :v_end_date)';
              EXECUTE IMMEDIATE v_sql USING v_start_date, v_end_date;
 
              -- UPDATE THE t_info_extractions TABLE
@@ -241,8 +242,13 @@ create or replace PACKAGE BODY pck_extract IS
 
       -- EXTRACT FROM SOURCE TABLES
       -- table_extract('','','','');
-      table_extract('EI_SAD_PROJ_BDA.T_BDA_UNIDADES_CURRICULARES', 't_data_unidades_curriculares', 'cd_plano,cd_discip,ds_discip,ds_abreviatura,cd_duracao,cd_ramo,cd_curso', 'cd_plano,cd_discip,ds_discip,ds_abreviatura,cd_duracao,cd_ramo,cd_curso');
-      table_extract('EI_SAD_PROJ_BDA.T_BDA_UNIDADES_ORGANICAS','t_data_unidades_organicas','cd_instituic,ds_instituic,ds_inst_abr','cd_instituic,ds_instituic,ds_inst_abr');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_UNIDADES_ORGANICAS','t_data_unidades_organicas','cd_instituic,ds_instituic,ds_inst_abr','cd_instituic,ds_instituic,ds_inst_abr');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_UNIDADES_CURRICULARES', 't_data_unidades_curriculares', 'cd_plano,cd_discip,ds_discip,ds_abreviatura,cd_duracao,cd_ramo,cd_curso', 'cd_plano,cd_discip,ds_discip,ds_abreviatura,cd_duracao,cd_ramo,cd_curso');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_INSCRICOES','t_data_inscricoes','cd_lectivo, cd_curso_aluno,cd_plano,cd_ramo,cd_discip,cd_aluno,dt_inscri,cd_tipo_insc,ects,cd_epoca_aval,ds_epoca_aval','cd_lectivo, cd_curso_aluno,cd_plano,cd_ramo,cd_discip,cd_aluno,dt_inscri,cd_tipo_insc,ects,cd_epoca_aval,ds_epoca_aval');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_RAMOS','t_data_ramos','cd_curso,cd_plano,cd_ramo,nm_ramo','cd_curso,cd_plano,cd_ramo,nm_ramo');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_AVALIACOES','t_data_avaliacoes','cd_lectivo,cd_duracao,cd_curso_aluno,cd_discip,cd_plano,cd_epoca_aval,ds_epoca_aval,nr_avalia','cd_lectivo,cd_duracao,cd_curso_aluno,cd_discip,cd_plano,cd_epoca_aval,ds_epoca_aval,nr_avalia');
+        table_extract('EI_SAD_PROJ_BDA.PLANOS','t_data_planos','cd_curso,cd_plano,nm_plano,cd_activo,nr_ects_curso,nr_duracao_curso','cd_curso,cd_plano,nm_plano,cd_activo,nr_ects_curso,nr_duracao_curso');
+        table_extract('EI_SAD_PROJ_BDA.CURSOS','t_data_cursos','cd_curso,cd_oficial,nm_curso,nm_cur_abr,cd_instituic,cd_regime,ds_area_estudo,ds_grau,cd_activo,cd_bolonha','cd_curso,cd_oficial,nm_curso,nm_cur_abr,cd_instituic,cd_regime,ds_area_estudo,ds_grau,cd_activo,cd_bolonha');
       --#table_extract('view_linhasvenda@dblink_sadsb', 't_data_linesofsale', 'src_id,src_sale_id,src_product_id,src_quantity,src_ammount_paid,src_line_date', 'id,sale_id,product_id,quantity,ammount_paid,line_date');
       --#table_extract('view_vendas@dblink_sadsb', 't_data_sales', 'src_id,src_sale_date,src_store_id','id,sale_date,store_id');
       --#table_extract('view_promocoes@dblink_sadsb', 't_data_promotions','src_id,src_name,src_start_date,src_end_date,src_reduction,src_on_outdoor,src_on_tv','id,name,start_date,end_date,reduction,on_outdoor,on_tv');
@@ -266,4 +272,5 @@ create or replace PACKAGE BODY pck_extract IS
          pck_log.write_halt_extraction_msg;
    END;
 end pck_extract;
+
 /

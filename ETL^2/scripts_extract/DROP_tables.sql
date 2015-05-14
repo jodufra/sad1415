@@ -1,5 +1,6 @@
 -- EXTERNAL TABLES
 DROP TABLE t_ext_areas_cientificas;
+DROP TABLE t_ext_cursos;
 
 -- INFORMATION TABLES
 DROP TABLE t_info_file_reading;
