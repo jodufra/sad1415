@@ -65,10 +65,10 @@ create or replace PACKAGE BODY pck_extract IS
             pck_log.write_log('Done!');
             
             pck_log.write_log('Action: delete %_new and %_old data'); 
-            --#DELETE FROM t_data_managers_new;
-            --#DELETE FROM t_data_managers_old;
-            --#DELETE FROM t_data_stores_new;
-            --#DELETE FROM t_data_stores_old;
+            DELETE FROM t_data_areas_cientificas_new;
+            DELETE FROM t_data_areas_cientificas_old;
+            DELETE FROM t_data_cursos_new;
+            DELETE FROM t_data_cursos_old;
             pck_log.write_log('Done!');
          END IF;
       EXCEPTION
@@ -76,16 +76,14 @@ create or replace PACKAGE BODY pck_extract IS
             pck_log.write_log('Error: could not delete previous initialization data ['||sqlerrm||'].');
             RAISE e_extraction;
       END;
-      
-      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_UNIDADES_CURRICULARES');
       INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_UNIDADES_ORGANICAS');
-
-      --#INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'view_produtos@DBLINK_SADSB');
-      --#INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'view_promocoes@DBLINK_SADSB');
-      --#INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'view_vendas@DBLINK_SADSB');
-      --#INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'view_linhasvenda@DBLINK_SADSB');
-      --#INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'view_linhasvenda_promocoes@DBLINK_SADSB');
-      --#INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'view_categorias@DBLINK_SADSB');
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_UNIDADES_CURRICULARES');
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_INSCRICOES');
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_RAMOS');
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_AVALIACOES');
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_PLANOS');
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_CURSOS');
+      INSERT INTO t_info_extractions (last_timestamp,source_table_name) VALUES (NULL,'EI_SAD_PROJ_BDA.T_BDA_ESTUDANTES');
       pck_log.write_log('Done!');
    EXCEPTION
       WHEN OTHERS THEN
@@ -241,22 +239,17 @@ create or replace PACKAGE BODY pck_extract IS
       END IF;
 
       -- EXTRACT FROM SOURCE TABLES
-      -- table_extract('','','','');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_UNIDADES_ORGANICAS','t_data_unidades_organicas','cd_instituic,ds_instituic,ds_inst_abr','cd_instituic,ds_instituic,ds_inst_abr');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_UNIDADES_CURRICULARES', 't_data_unidades_curriculares', 'cd_plano,cd_discip,ds_discip,ds_abreviatura,cd_duracao,cd_ramo,cd_curso', 'cd_plano,cd_discip,ds_discip,ds_abreviatura,cd_duracao,cd_ramo,cd_curso');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_INSCRICOES','t_data_inscricoes','cd_lectivo, cd_curso_aluno,cd_plano,cd_ramo,cd_discip,cd_aluno,dt_inscri,cd_tipo_insc,ects,cd_epoca_aval,ds_epoca_aval','cd_lectivo, cd_curso_aluno,cd_plano,cd_ramo,cd_discip,cd_aluno,dt_inscri,cd_tipo_insc,ects,cd_epoca_aval,ds_epoca_aval');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_RAMOS','t_data_ramos','cd_curso,cd_plano,cd_ramo,nm_ramo','cd_curso,cd_plano,cd_ramo,nm_ramo');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_AVALIACOES','t_data_avaliacoes','cd_lectivo,cd_duracao,cd_curso_aluno,cd_discip,cd_plano,cd_epoca_aval,ds_epoca_aval,nr_avalia','cd_lectivo,cd_duracao,cd_curso_aluno,cd_discip,cd_plano,cd_epoca_aval,ds_epoca_aval,nr_avalia');
-        table_extract('EI_SAD_PROJ_BDA.PLANOS','t_data_planos','cd_curso,cd_plano,nm_plano,cd_activo,nr_ects_curso,nr_duracao_curso','cd_curso,cd_plano,nm_plano,cd_activo,nr_ects_curso,nr_duracao_curso');
-        table_extract('EI_SAD_PROJ_BDA.CURSOS','t_data_cursos','cd_curso,cd_oficial,nm_curso,nm_cur_abr,cd_instituic,cd_regime,ds_area_estudo,ds_grau,cd_activo,cd_bolonha','cd_curso,cd_oficial,nm_curso,nm_cur_abr,cd_instituic,cd_regime,ds_area_estudo,ds_grau,cd_activo,cd_bolonha');
-      --#table_extract('view_linhasvenda@dblink_sadsb', 't_data_linesofsale', 'src_id,src_sale_id,src_product_id,src_quantity,src_ammount_paid,src_line_date', 'id,sale_id,product_id,quantity,ammount_paid,line_date');
-      --#table_extract('view_vendas@dblink_sadsb', 't_data_sales', 'src_id,src_sale_date,src_store_id','id,sale_date,store_id');
-      --#table_extract('view_promocoes@dblink_sadsb', 't_data_promotions','src_id,src_name,src_start_date,src_end_date,src_reduction,src_on_outdoor,src_on_tv','id,name,start_date,end_date,reduction,on_outdoor,on_tv');
-      --#table_extract('view_linhasvenda_promocoes@dblink_sadsb', 't_data_linesofsalepromotions','src_line_id,src_promo_id','line_id,promo_id');
-      --#table_extract_non_incremental('view_categorias@dblink_sadsb', 't_data_categories', 'src_id,src_name', 'id,name');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_PLANOS','t_data_planos','cd_curso,cd_plano,nm_plano,cd_activo,nr_ects_curso,nr_duracao_curso','cd_curso,cd_plano,nm_plano,cd_activo,nr_ects_curso,nr_duracao_curso');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_CURSOS','t_data_cursos','cd_curso,cd_oficial,nm_curso,nm_cur_abr,cd_instituic,cd_regime,ds_area_estudo,ds_grau,cd_activo,cd_bolonha','cd_curso,cd_oficial,nm_curso,nm_cur_abr,cd_instituic,cd_regime,ds_area_estudo,ds_grau,cd_activo,cd_bolonha');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_ESTUDANTES', 't_data_estudantes', 'cd_curso,cd_aluno','cd_curso,cd_aluno');
       -- EXTRACT FROM SOURCE FILES
-      --#file_extract ('t_ext_stores', 'name,refer,building,address,zip_code,city,district,phone_nrs,fax_nr,closure_date', 'name,reference,building,address,zip_code,location,district,telephones,fax,closure_date', 't_data_stores_new', 't_data_stores_old'); 
-      --#file_extract ('t_ext_managers', 'reference,manager_name,manager_since', 'reference,manager_name,manager_since', 't_data_managers_new', 't_data_managers_old');
+        file_extract ('t_ext_areas_cientificas', 'nome,sigla', 'nome,sigla', 't_data_areas_cientificas_new', 't_data_areas_cientificas_old'); 
+        file_extract ('t_ext_cursos', 'uc_nome,area_cientifica_sigla,departamento_sigla', 'uc_nome,area_cientifica_sigla,departamento_sigla', 't_data_cursos_new', 't_data_cursos_old');
 
       pck_log.write_log('Info: data extraction completed');
       COMMIT;
