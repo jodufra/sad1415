@@ -9,13 +9,13 @@ CREATE TABLE t_data_areas_cientificas_new(
 );
 CREATE TABLE t_data_areas_cientificas_old AS SELECT * FROM t_data_areas_cientificas_new;
 
-CREATE TABLE t_data_cursos_new(
+CREATE TABLE t_data_curso_ucs_new(
 	uc_nome	VARCHAR2(150),
 	area_cientifica_sigla	VARCHAR2(20),
 	departamento_sigla	VARCHAR2(20),
 	rejected_by_screen CHAR	DEFAULT(0)	-- {0=not rejected,1=rejected,will not be used on LOAD stage}
 );
-CREATE TABLE t_data_cursos_old AS SELECT * FROM t_data_cursos_new;
+CREATE TABLE t_data_curso_ucs_old AS SELECT * FROM t_data_curso_ucs_new;
 
 CREATE TABLE t_data_avaliacoes(
 	cd_lectivo	VARCHAR2(7), 

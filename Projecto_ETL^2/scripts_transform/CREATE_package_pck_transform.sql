@@ -1,13 +1,14 @@
 CREATE OR REPLACE PACKAGE PCK_TRANSFORM AS
 
    PROCEDURE main (p_duplicate_last_iteration BOOLEAN);
+   PROCEDURE screen_null_liq_weight (p_iteration_key t_tel_iteration.iteration_key%TYPE, p_source_key t_tel_source.source_key%TYPE, p_screen_order t_tel_schedule.screen_order%TYPE);
+   PROCEDURE screen_dimensions (p_iteration_key t_tel_iteration.iteration_key%TYPE, p_source_key t_tel_source.source_key%TYPE, p_screen_order t_tel_schedule.screen_order%TYPE);
+
 
 END PCK_TRANSFORM;
 /
 
-
-create or replace
-PACKAGE BODY pck_transform IS
+create or replace PACKAGE BODY pck_transform IS
 
    e_transformation EXCEPTION;
    
@@ -111,16 +112,21 @@ PACKAGE BODY pck_transform IS
    PROCEDURE screen_dimensions (p_iteration_key t_tel_iteration.iteration_key%TYPE,
                                              p_source_key t_tel_source.source_key%TYPE,
                                              p_screen_order t_tel_schedule.screen_order%TYPE) IS
-
-      -- SOMETHING IS MISSING
-
+      
+      CURSOR screen_dimensions_cursor IS
+      SELECT p.rowid, p.* FROM T_DATA_PRODUCTS p JOIN T_LOOKUP_PACK_DIMENSIONS dims ON UPPER(dims.pack_type) = UPPER(p.pack_type)
+      WHERE p.rejected_by_screen = 0 AND ((p.width is null AND p.height is null AND p.depth is null AND dims.has_dimensions = 1) OR
+               ((p.width is not null OR p.height is not null OR p.depth is not null) AND dims.has_dimensions = 0));    
+      
       i PLS_INTEGER:=0;
       v_screen_name VARCHAR2(30):='screen_dimensions';
    BEGIN
       pck_log.write_log('Action: Start screen "'||v_screen_name||'" with order #'||p_screen_order||' * ');
 
-      -- SOMETHING IS MISSING
-      null;
+      FOR product IN screen_dimensions_cursor LOOP
+       -- error_log(v_screen_name , sysdate, p_source_key, p_iteration_key, product.rowid, pck_error_codes.c_transform_minorPass_error);
+        i := i+1;
+      END LOOP;
 
       pck_log.write_log('Info: Found '|| i || ' line(s) with error; line(s) will not be rejected');
       pck_log.write_log('Done!');
@@ -134,6 +140,44 @@ PACKAGE BODY pck_transform IS
    END;
 
 
+   -- *************************************************************************************
+   -- * FILTER PROBLEMATIC DATA IN THE LIQ WEIGHT OF THE PRODUCTS                               *
+   -- * IN                                                                                *
+   -- *     p_iteration_key: key of the iteration in which the screen will be run         *
+   -- *     p_source_key: key of the source system related to the screen's execution      *
+   -- *     p_screen_order: order number in which the screen is to be executed            *
+   -- *************************************************************************************
+   PROCEDURE screen_null_liq_weight (p_iteration_key t_tel_iteration.iteration_key%TYPE,
+                                             p_source_key t_tel_source.source_key%TYPE,
+                                             p_screen_order t_tel_schedule.screen_order%TYPE) IS
+      
+      CURSOR screen_null_liq_weight_cursor IS
+      SELECT p.rowid tdp_rowid, p.* FROM T_DATA_PRODUCTS p
+      WHERE p.rejected_by_screen = 0 AND not ((p.liq_weight is null AND p.PACK_TYPE is null) OR (p.liq_weight is not null AND p.PACK_TYPE is not null));
+      
+      i PLS_INTEGER:=0;
+      v_screen_name VARCHAR2(30):='screen_null_liq_weight';
+   BEGIN
+      pck_log.write_log('Action: Start screen "'||v_screen_name||'" with order #'||p_screen_order||' * ');
+
+      FOR product IN screen_null_liq_weight_cursor LOOP
+        EXECUTE IMMEDIATE  'UPDATE  t_data_products set rejected_by_screen = 1 where rowid=:tdp_rowid' 
+        USING product.tdp_rowid;
+       
+        --error_log(v_screen_name , sysdate, p_source_key, p_iteration_key, product.tdp_rowid, pck_error_codes.c_transform_minorReject_error);
+        i := i+1;
+      END LOOP;
+
+      pck_log.write_log('Info: Found '|| i || ' line(s) with error; line(s) will not be rejected');
+      pck_log.write_log('Done!');
+   EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+         pck_log.write_log('Info: No quality errors found');
+         pck_log.write_log('Done!');
+      WHEN OTHERS THEN
+         pck_log.write_log('Error: could not execute screen ['||sqlerrm||']');
+         RAISE e_transformation;
+   END;
 
    -- ####################### TRANSFORMATION ROUTINES #######################
 
@@ -188,6 +232,27 @@ PACKAGE BODY pck_transform IS
          RAISE e_transformation;
    END;
 
+   -- **********************************************************
+   -- * TRANSFORMATION OF PROMOTIONS ACCORDING TO LOGICAL DATA MAP *
+   -- **********************************************************
+   PROCEDURE transform_promotions IS
+   BEGIN
+      pck_log.write_log('Action: transform promotions'' data');
+
+      INSERT INTO t_clean_promotions(id, name, start_date, end_date, reduction, on_street, on_tv)
+      SELECT id, name, start_date, end_date, reduction, CASE 'on_street' WHEN '1' THEN 'YES' ELSE 'NO' END, CASE 'on_tv' WHEN '1' THEN 'YES' ELSE 'NO' END
+      FROM t_data_promotions
+      WHERE rejected_by_screen='0';
+
+      pck_log.write_log('Done!');
+   EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+         pck_log.write_log('Info: Found no lines to transform');
+         pck_log.write_log('Done!');
+      WHEN OTHERS THEN
+         pck_log.write_log('Error: could not transform promotions ['||sqlerrm||']');
+         RAISE e_transformation;
+   END;
 
    -- *********************************************************
    -- * TRANSFORMATION OF SALES ACCORDING TO LOGICAL DATA MAP *
@@ -252,10 +317,10 @@ PACKAGE BODY pck_transform IS
       cursor scheduled_screens_cursor(p_iteration_key t_tel_iteration.iteration_key%TYPE) IS
          SELECT UPPER(screen_name) screen_name,source_key,screen_order
          FROM t_tel_schedule, t_tel_screen
-         WHERE iteration_key=p_iteration_key AND
-              t_tel_schedule.screen_key=t_tel_screen.screen_key;
+         WHERE iteration_key=p_iteration_key AND  t_tel_schedule.screen_key=t_tel_screen.screen_key;
 
       v_iteration_key t_tel_iteration.iteration_key%TYPE;
+      v_sql  VARCHAR2(1000);
    BEGIN
       pck_log.write_log('Info: entering TRANSFORMATION stage');
       -- DUPLICATES THE LAST ITERATION WITH THEN CORRESPONDING SCHEDULE
@@ -274,8 +339,8 @@ PACKAGE BODY pck_transform IS
 
       -- FIND THE MOST RECENTLY SCHEDULED ITERATION
       BEGIN
-         -- SOMETHING IS MISSING
-         null;
+         select ITERATION_KEY  into v_iteration_key from T_TEL_ITERATION
+         where ITERATION_START_DATE = (select max(ITERATION_START_DATE) from  T_TEL_ITERATION group by ITERATION_KEY);
       EXCEPTION
          WHEN OTHERS THEN
             RAISE e_transformation;
@@ -285,18 +350,19 @@ PACKAGE BODY pck_transform IS
 
       -- RUN ALL SCHEDULED SCREENS
       FOR rec IN scheduled_screens_cursor(v_iteration_key) LOOP
-         -- SOMETHING IS MISSING
-         null;
+         v_sql:= 'BEGIN PCK_TRANSFORM.' || rec.screen_name || '(:b1, :b2, :b3); END;';
+         EXECUTE IMMEDIATE v_sql USING v_iteration_key, rec.source_key, rec.screen_order;
       END LOOP;
 
       pck_log.write_log('Info: all scheduled screens executed');
       
-      pck_log.write_log('Info: starting data transformation');
       -- EXECUTE THE TRANSFORMATION ROUTINES
+      pck_log.write_log('Info: starting data transformation');
       transform_products;
       transform_stores;
       transform_sales;
       transform_linesofsale;
+      transform_promotions;
       
       pck_log.write_log('Info: data transformation completed');
       COMMIT;

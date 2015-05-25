@@ -24,7 +24,7 @@ ORGANIZATION EXTERNAL
 REJECT LIMIT UNLIMITED;
 
 
-CREATE TABLE t_ext_cursos(
+CREATE TABLE t_ext_curso_ucs(
 	uc_nome		VARCHAR2(150),
 	area_cientifica_sigla		VARCHAR2(20),
 	departamento_sigla		VARCHAR2(20)

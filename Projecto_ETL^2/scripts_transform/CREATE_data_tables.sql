@@ -1,56 +1,76 @@
-CREATE TABLE t_clean_products(
-	id		NUMBER(10),
-	name		VARCHAR2(30),
-	brand		VARCHAR2(30),
-	pack_size	VARCHAR2(20),
-	pack_type	VARCHAR2(30),
-	diet_type	VARCHAR2(15),
-	liq_weight	NUMBER(8,2),
-	category_name	VARCHAR2(20)
+CREATE TABLE t_clean_avaliacoes(
+	cd_lectivo	VARCHAR2(7), 
+	cd_duracao	VARCHAR2(2), 
+	cd_aluno	NUMBER(38), 
+	cd_curso_aluno	NUMBER(38), 
+	cd_discip	NUMBER(38), 
+	cd_plano	NUMBER(38), 
+	cd_epoca_aval	NUMBER(38), 
+	ds_epoca_aval 	VARCHAR2(50), 
+	nr_avalia	NUMBER(38) 
 );
 
-CREATE TABLE t_clean_stores(
-	name		VARCHAR2(100),
-	reference	CHAR(6),
-	address		VARCHAR2(250),
-	zip_code	CHAR(8),
-	location	VARCHAR2(40),
-	district	VARCHAR2(30),
-	telephones	CHAR(9),
-	fax		CHAR(9),
-	status		VARCHAR2(8),
-	manager_name	VARCHAR2(100),
-	manager_since	DATE
+CREATE TABLE t_clean_cursos(
+	cd_curso	NUMBER(38), 
+	cd_oficial	VARCHAR2(4), 
+	nm_curso	VARCHAR2(240), 
+	nm_cur_abr	VARCHAR2(40), 
+	cd_instituic	NUMBER(38), 
+	cd_regime	VARCHAR2(500), 
+	ds_area_estudo	VARCHAR2(100), 
+	ds_grau	VARCHAR2(100), 
+	cd_activo	VARCHAR2(1), 
+	cd_bolonha	VARCHAR2(1) 
 );
 
-
-CREATE TABLE t_clean_promotions(
-	id		NUMBER(10),
-	name		VARCHAR2(100),
-	start_date	DATE,
-	end_date	DATE,
-	reduction	NUMBER(3,2),
-	on_street	VARCHAR2(3),
-	on_tv		VARCHAR2(3)
+CREATE TABLE t_clean_estudantes(
+	cd_curso  NUMBER(38), 
+	cd_aluno  NUMBER(38)
 );
 
-
-CREATE TABLE t_clean_sales(
-	id		NUMBER(10),
-	sale_date	DATE,
-	store_id   	CHAR(6)
+CREATE TABLE t_clean_inscricoes(
+	cd_lectivo  VARCHAR2(7),
+	cd_curso_aluno  NUMBER(38),
+	cd_plano  NUMBER(38),
+	cd_ramo  NUMBER(38),
+	cd_discip  NUMBER(38),
+	cd_aluno  NUMBER(38),
+	dt_inscri	DATE,
+	cd_tipo_insc  NUMBER(38),
+	ds_tipo_insc	VARCHAR2(50),
+	ects	FLOAT(126),
+	cd_epoca_aval	NUMBER,
+	ds_epoca_aval	VARCHAR2(50)
 );
 
-
-CREATE TABLE t_clean_linesofsale(
-	id		NUMBER(10),
-	sale_id		NUMBER(10),
-	product_id	NUMBER(10),
-	promo_id	NUMBER(10),
-	line_date	DATE,
-	quantity	NUMBER(8,2),
-	ammount_paid	NUMBER(11,2)
+CREATE TABLE t_clean_planos(
+	cd_curso  NUMBER(38),
+	cd_plano  NUMBER(38),
+	nm_plano	VARCHAR2(280),
+	cd_activo	VARCHAR2(1),
+	nr_ects_curso	NUMBER(38),
+	nr_duracao_curso	NUMBER(3)
 );
 
+CREATE TABLE t_clean_ramos(
+	cd_curso  NUMBER(38), 
+	cd_plano  NUMBER(38), 
+	cd_ramo  NUMBER(38), 
+	nm_ramo	VARCHAR2(280) 
+);
 
+CREATE TABLE t_clean_unidades_curriculares(
+	cd_plano  NUMBER(38),
+	cd_discip  NUMBER(38),
+	ds_discip	VARCHAR2(200),
+	ds_abreviatura	VARCHAR2(15),
+	cd_duracao	VARCHAR2(2),
+	cd_ramo  NUMBER(38),
+	cd_curso  NUMBER(38)
+);
 
+CREATE TABLE t_clean_unidades_organicas(
+	cd_instituic  NUMBER(38),
+	ds_instituic  VARCHAR2(100),
+	ds_inst_abr	VARCHAR2(30)
+);

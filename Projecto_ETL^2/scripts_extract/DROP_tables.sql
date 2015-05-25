@@ -1,6 +1,6 @@
 -- EXTERNAL TABLES
 DROP TABLE t_ext_areas_cientificas;
-DROP TABLE t_ext_cursos;
+DROP TABLE t_ext_curso_ucs;
 
 -- INFORMATION TABLES
 DROP TABLE t_info_file_reading;
@@ -9,8 +9,8 @@ DROP TABLE t_info_extractions;
 -- DATA TABLES
 DROP TABLE t_data_areas_cientificas_new;
 DROP TABLE t_data_areas_cientificas_old;
-DROP TABLE t_data_cursos_new;
-DROP TABLE t_data_cursos_old;
+DROP TABLE t_data_curso_ucs_new;
+DROP TABLE t_data_curso_ucs_old;
 DROP TABLE t_data_avaliacoes;
 DROP TABLE t_data_cursos;
 DROP TABLE t_data_estudantes;

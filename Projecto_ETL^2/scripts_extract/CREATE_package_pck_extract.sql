@@ -67,8 +67,8 @@ create or replace PACKAGE BODY pck_extract IS
             pck_log.write_log('Action: delete %_new and %_old data'); 
             DELETE FROM t_data_areas_cientificas_new;
             DELETE FROM t_data_areas_cientificas_old;
-            DELETE FROM t_data_cursos_new;
-            DELETE FROM t_data_cursos_old;
+            DELETE FROM t_data_curso_ucs_new;
+            DELETE FROM t_data_curso_ucs_old;
             pck_log.write_log('Done!');
          END IF;
       EXCEPTION
@@ -249,7 +249,7 @@ create or replace PACKAGE BODY pck_extract IS
         table_extract('EI_SAD_PROJ_BDA.T_BDA_ESTUDANTES', 't_data_estudantes', 'cd_curso,cd_aluno','cd_curso,cd_aluno');
       -- EXTRACT FROM SOURCE FILES
         file_extract ('t_ext_areas_cientificas', 'nome,sigla', 'nome,sigla', 't_data_areas_cientificas_new', 't_data_areas_cientificas_old'); 
-        file_extract ('t_ext_cursos', 'uc_nome,area_cientifica_sigla,departamento_sigla', 'uc_nome,area_cientifica_sigla,departamento_sigla', 't_data_cursos_new', 't_data_cursos_old');
+        file_extract ('t_ext_curso_ucs', 'uc_nome,area_cientifica_sigla,departamento_sigla', 'uc_nome,area_cientifica_sigla,departamento_sigla', 't_data_cursos_new', 't_data_cursos_old');
 
       pck_log.write_log('Info: data extraction completed');
       COMMIT;
