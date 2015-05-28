@@ -168,7 +168,7 @@ create or replace PACKAGE BODY pck_transform IS
         i := i+1;
       END LOOP;
 
-      pck_log.write_log('Info: Found '|| i || ' line(s) with error; line(s) will not be rejected');
+      pck_log.write_log('Info: Found '|| i || ' line(s) with error; line(s) will be rejected');
       pck_log.write_log('Done!');
    EXCEPTION
       WHEN NO_DATA_FOUND THEN
