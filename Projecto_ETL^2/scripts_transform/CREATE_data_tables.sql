@@ -43,6 +43,11 @@ CREATE TABLE t_clean_inscricoes(
 	ds_epoca_aval	VARCHAR2(50)
 );
 
+CREATE TABLE t_clean_tipos_inscricao(
+	cd_tipo_insc  NUMBER(38),
+	ds_tipo_insc	VARCHAR2(50)
+);
+
 CREATE TABLE t_clean_planos(
 	cd_curso  NUMBER(38),
 	cd_plano  NUMBER(38),

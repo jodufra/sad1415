@@ -241,7 +241,7 @@ create or replace PACKAGE BODY pck_extract IS
       -- EXTRACT FROM SOURCE TABLES
         table_extract('EI_SAD_PROJ_BDA.T_BDA_UNIDADES_ORGANICAS','t_data_unidades_organicas','cd_instituic,ds_instituic,ds_inst_abr','cd_instituic,ds_instituic,ds_inst_abr');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_UNIDADES_CURRICULARES', 't_data_unidades_curriculares', 'cd_plano,cd_discip,ds_discip,ds_abreviatura,cd_duracao,cd_ramo,cd_curso', 'cd_plano,cd_discip,ds_discip,ds_abreviatura,cd_duracao,cd_ramo,cd_curso');
-        table_extract('EI_SAD_PROJ_BDA.T_BDA_INSCRICOES','t_data_inscricoes','cd_lectivo, cd_curso_aluno,cd_plano,cd_ramo,cd_discip,cd_aluno,dt_inscri,cd_tipo_insc,ects,cd_epoca_aval,ds_epoca_aval','cd_lectivo, cd_curso_aluno,cd_plano,cd_ramo,cd_discip,cd_aluno,dt_inscri,cd_tipo_insc,ects,cd_epoca_aval,ds_epoca_aval');
+        table_extract('EI_SAD_PROJ_BDA.T_BDA_INSCRICOES','t_data_inscricoes','cd_lectivo, cd_curso_aluno,cd_plano,cd_ramo,cd_discip,cd_aluno,dt_inscri,cd_tipo_insc,ds_tipo_insc,ects,cd_epoca_aval,ds_epoca_aval','cd_lectivo, cd_curso_aluno,cd_plano,cd_ramo,cd_discip,cd_aluno,dt_inscri,cd_tipo_insc,ds_tipo_insc,ects,cd_epoca_aval,ds_epoca_aval');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_RAMOS','t_data_ramos','cd_curso,cd_plano,cd_ramo,nm_ramo','cd_curso,cd_plano,cd_ramo,nm_ramo');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_AVALIACOES','t_data_avaliacoes','cd_lectivo,cd_duracao,cd_curso_aluno,cd_discip,cd_plano,cd_epoca_aval,ds_epoca_aval,nr_avalia','cd_lectivo,cd_duracao,cd_curso_aluno,cd_discip,cd_plano,cd_epoca_aval,ds_epoca_aval,nr_avalia');
         table_extract('EI_SAD_PROJ_BDA.T_BDA_PLANOS','t_data_planos','cd_curso,cd_plano,nm_plano,cd_activo,nr_ects_curso,nr_duracao_curso','cd_curso,cd_plano,nm_plano,cd_activo,nr_ects_curso,nr_duracao_curso');
@@ -249,7 +249,7 @@ create or replace PACKAGE BODY pck_extract IS
         table_extract('EI_SAD_PROJ_BDA.T_BDA_ESTUDANTES', 't_data_estudantes', 'cd_curso,cd_aluno','cd_curso,cd_aluno');
       -- EXTRACT FROM SOURCE FILES
         file_extract ('t_ext_areas_cientificas', 'nome,sigla', 'nome,sigla', 't_data_areas_cientificas_new', 't_data_areas_cientificas_old'); 
-        file_extract ('t_ext_curso_ucs', 'uc_nome,area_cientifica_sigla,departamento_sigla', 'uc_nome,area_cientifica_sigla,departamento_sigla', 't_data_cursos_new', 't_data_cursos_old');
+        file_extract ('t_ext_curso_ucs', 'uc_nome,area_cientifica_sigla,departamento_sigla', 'uc_nome,area_cientifica_sigla,departamento_sigla', 't_data_curso_ucs_new', 't_data_curso_ucs_old');
 
       pck_log.write_log('Info: data extraction completed');
       COMMIT;
