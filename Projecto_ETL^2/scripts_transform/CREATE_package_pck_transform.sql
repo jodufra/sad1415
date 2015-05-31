@@ -7,7 +7,7 @@ CREATE OR REPLACE PACKAGE PCK_TRANSFORM AS
 
 END PCK_TRANSFORM;
 /
-create or replace PACKAGE BODY pck_transform IS
+CREATE OR REPLACE PACKAGE BODY PCK_TRANSFORM IS
 
    e_transformation EXCEPTION;
 
@@ -23,7 +23,7 @@ create or replace PACKAGE BODY pck_transform IS
       v_date_key t_tel_date.date_key%TYPE;
       v_screen_key t_tel_screen.screen_key%TYPE;
    BEGIN
-      -- obtÃ©m o id da dimensÃ£o Â«dateÂ» referente ao dia em que o erro foi detectado
+      -- obtém o id da dimensão «date» referente ao dia em que o erro foi detectado
       BEGIN
          SELECT date_key
          INTO v_date_key
@@ -98,8 +98,6 @@ create or replace PACKAGE BODY pck_transform IS
          pck_log.write_log('Error: could not duplicate last iteration ['||sqlerrm||']');
          RAISE e_transformation;
    END;
-
-
 
    -- ####################### TRANSFORMATION ROUTINES #######################
    
