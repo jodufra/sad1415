@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="EI_SAD_PROJ_BDA" directorySegmentName="seg_0" id="DBBDE83C-CED3-E962-32C5-8352B1F6C97D">
-<sourceConnName>SAD_Projecto</sourceConnName>
-<sourceObjName>EI_SAD_PROJ_BDA</sourceObjName>
-<createdBy>Joel</createdBy>
-<createdTime>2015-03-14 19:19:12 UTC</createdTime>
-<ownerDesignName>EI_SAD_PROJ_BDA</ownerDesignName>
-<schemaObject>1AF8188E-4106-98C6-DB75-04518E12B419</schemaObject>
-</UserOraclev10g>
