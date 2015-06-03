@@ -1,97 +1,90 @@
-CREATE TABLE t_dim_store(
-	store_key		NUMBER(5),
-	store_natural_key	CHAR(6),
-	store_name		VARCHAR2(40),
-	store_full_address	VARCHAR2(250),
-	store_location		VARCHAR2(40),
-	store_district		VARCHAR2(30),
-	store_zip_code		CHAR(8),
-	store_main_phone	CHAR(9),
-	store_main_phone_old	CHAR(9),		-- to store previous telephone value
-	store_fax		CHAR(9),
-	store_fax_old		CHAR(9),		-- to store previous fax value
-	store_manager_name	VARCHAR2(100),
-	store_manager_since	DATE,
-	store_state		VARCHAR2(8),
-	is_expired_version	VARCHAR2(3),	-- {'NO'=current version; 'YES'=expired version}
-	CONSTRAINT pk_tdimstore_storeKey PRIMARY KEY (store_key)
+CREATE TABLE t_dim_cursos(
+	cursos_key NUMBER(38),
+	curso_natural_key NUMBER(38), 
+	curso_oficial_key VARCHAR2(4), 
+	curso_nome VARCHAR2(240), 
+	curso_nome_abv NUMBER(38), 
+	curso_regime VARCHAR2(500), 
+	curso_grau VARCHAR2(100), 
+	curso_activo VARCHAR2(3), 
+	curso_bolonha VARCHAR2(3),
+	curso_instituicao_key NUMBER(*,0),
+	curso_instituicao_nome VARCHAR2(100),
+	curso_instituicao_nome_abv VARCHAR2(30),
+	is_expired_version	VARCHAR2(3),
+	CONSTRAINT pk_tdimcursos_cursosKey PRIMARY KEY (cursos_key)
 );
 
-
-CREATE TABLE t_dim_product(
-	product_key		NUMBER(12),
-	product_natural_Key	NUMBER(10),
-	product_name		VARCHAR2(30),
-	product_brand		VARCHAR2(30),
-	product_category	VARCHAR2(20),
-	product_size_package	VARCHAR2(20),
-	product_type_package	VARCHAR2(30),
-	product_diet_type	VARCHAR2(15),
-	product_liquid_weight	NUMBER(8,2),
-	is_expired_version	VARCHAR2(3),	-- {'NO'=current version; 'YES'=expired version}
-	CONSTRAINT pk_tdimproduct_productKey PRIMARY KEY (product_key)
+CREATE TABLE t_dim_estudantes(
+	estudante_key NUMBER(38), 
+	estudante_natural_key NUMBER(38),
+	curso_key NUMBER(38),
+	is_expired_version	VARCHAR2(3),
+	CONSTRAINT pk_tdimestudantes_estudanteKey PRIMARY KEY (estudante_key)
 );
 
-
-CREATE TABLE t_dim_promotion(
-	promo_key		NUMBER(12),
-	promo_natural_Key	NUMBER(10),
-	promo_name		VARCHAR2(100),
-	promo_red_Price		NUMBER(3,2),
-	promo_advertise		VARCHAR2(3),
-	promo_board		VARCHAR2(3),
-	promo_start_date	DATE,
-	promo_end_date		DATE,
-	CONSTRAINT pk_tDimPromotion_promoKey PRIMARY KEY (promo_key)
+CREATE TABLE t_dim_tipos_inscricao(
+	tipo_insc_key NUMBER(38),
+	tipo_insc_natural_key NUMBER(38),
+	tipo_insc_descricao VARCHAR2(50),
+	is_expired_version	VARCHAR2(3),
+	CONSTRAINT pk_tdimtiposInscricao_tipoInscKey PRIMARY KEY (tipo_insc_key)
 );
 
-
-CREATE TABLE t_dim_date(
-	date_key		NUMBER(6),
-	date_full_date		CHAR(10),
-	date_month_full		CHAR(7),
-	date_day_nr		NUMBER(2),
-	date_is_holiday		CHAR(3),
-	date_month_name		VARCHAR2(12),
-	date_month_short_name	CHAR(3),
-	date_month_nr		NUMBER(2),
-	date_quarter_nr		NUMBER(1),
-	date_quarter_full	CHAR(7),
-	date_semester_nr	NUMBER(1),
-	date_semester_full	CHAR(7),
-	date_event		VARCHAR2(100),
-	date_year		NUMBER(4),
-	CONSTRAINT pk_tDimDate_dateKey PRIMARY KEY (date_key)
+CREATE TABLE t_dim_unidades_curriculares(
+	uc_key NUMBER(38),
+	uc_natural_key NUMBER(38),
+	curso_key NUMBER(38),
+	uc_nome VARCHAR2(200),
+	uc_nome_abv VARCHAR2(10),
+	uc_duracao VARCHAR2(10),
+	uc_area_cientifica VARCHAR2(150),
+	uc_area_cientifica_abv VARCHAR2(10),
+	uc_departamento_abv VARCHAR2(10),
+	ramo_key NUMBER(38),
+	uc_ramo NUMBER(38),
+	plano_key NUMBER(38),
+	uc_plano  VARCHAR2(280),
+	uc_plano_activo VARCHAR2(3),
+	uc_plano_ano_semestre VARCHAR2(20),
+	is_expired_version	VARCHAR2(3),
+	CONSTRAINT pk_tdimunidadesCurriculares_ucKey PRIMARY KEY (uc_key)
 );
 
-
-CREATE TABLE t_dim_time(
-	time_key		NUMBER(6),
-	time_full_time		CHAR(8),
-	time_period_of_day	VARCHAR2(20),
-	time_minutes_after_midnight	NUMBER(4),
-	time_hour_nr		NUMBER(2),
-	time_minute_nr		NUMBER(2),
-	time_second_nr		NUMBER(2),
-	CONSTRAINT pk_tDimTime_timeKey PRIMARY KEY (time_key)
+CREATE TABLE t_dim_epoca_avaliacao(
+	epoca_key NUMBER(38),
+	epoca_natural_key VARCHAR2(20),
+	epoca_descricao VARCHAR2(200),
+	epoca_semestre_anoletivo VARCHAR2(100),
+	epoca_semestre VARCHAR2(100),
+	epoca_anoletivo VARCHAR2(100),
+	is_expired_version	VARCHAR2(3),
+	CONSTRAINT pk_tdimepocaAvaliacao_epocaKey PRIMARY KEY (epoca_key)
 );
 
-
-CREATE TABLE t_fact_lineofsale(
-	product_key		NUMBER(12),
-	store_key		NUMBER(5),
-	date_key		NUMBER(6),
-	time_key		NUMBER(6),
-	promo_key		NUMBER(12),
-	sale_id_dd		NUMBER(10),
-	sold_quantity		NUMBER(5,2),
-	ammount_sold		NUMBER(7,2),
-	CONSTRAINT pk_tFactlineofsale_pk 		PRIMARY KEY (time_key, sale_id_dd),
-	CONSTRAINT fk_tFactlineofsale_productkey 	FOREIGN KEY (product_key) REFERENCES t_dim_product(product_key),
-	CONSTRAINT fk_tFactlineofsale_storekey 	FOREIGN KEY (store_key) REFERENCES t_dim_store(store_key),
-	CONSTRAINT fk_tFactlineofsale_timekey 	FOREIGN KEY (time_key) REFERENCES t_dim_time(time_key),
-	CONSTRAINT fk_tFactlineofsale_datekey 	FOREIGN KEY (date_key) REFERENCES t_dim_date(date_key),
-	CONSTRAINT fk_tFactlineofsale_promokey 	FOREIGN KEY (promo_key) REFERENCES t_dim_promotion(promo_key)
+CREATE TABLE t_fact_inscricao(
+	fact_inscricao_key NUMBER(38),
+	uc_key NUMBER(38), 
+	estudante_key NUMBER(38),
+	epoca_key NUMBER(38),
+	inscrito NUMBER(1),
+	ects NUMBER(3),
+	CONSTRAINT pk_tFactincricao_pk PRIMARY KEY (fact_inscricao_key,uc_key,estudante_key,epoca_key),
+	CONSTRAINT fk_tFactincricao_unidadescurriculareskey FOREIGN KEY (uc_key) REFERENCES t_dim_unidades_curriculares(uc_key),
+	CONSTRAINT fk_tFactincricao_estudanteskey FOREIGN KEY (estudante_key) REFERENCES t_dim_estudantes(estudante_key),
+	CONSTRAINT fk_tFactincricao_epocaavaliacaokey FOREIGN KEY (epoca_key) REFERENCES t_dim_epoca_avaliacao(epoca_key)
 );
 
-
+CREATE TABLE t_fact_avaliacao(
+	fact_avaliacao_key NUMBER(38), 
+	uc_key NUMBER(38), 
+	estudante_key NUMBER(38), 
+	epoca_key NUMBER(38), 
+	avaliacao NUMBER(3),
+	avaliado NUMBER(1),
+	aprovado NUMBER(1),
+	CONSTRAINT pk_tFactavaliacao_pk PRIMARY KEY (fact_avaliacao_key,uc_key,estudante_key,epoca_key),
+	CONSTRAINT fk_tFactavaliacao_unidadescurriculareskey FOREIGN KEY (uc_key) REFERENCES t_dim_unidades_curriculares(uc_key),
+	CONSTRAINT fk_tFactavaliacao_estudanteskey FOREIGN KEY (estudante_key) REFERENCES t_dim_estudantes(estudante_key),
+	CONSTRAINT fk_tFactavaliacao_epocaavaliacaokey FOREIGN KEY (epoca_key) REFERENCES t_dim_epoca_avaliacao(epoca_key)
+);

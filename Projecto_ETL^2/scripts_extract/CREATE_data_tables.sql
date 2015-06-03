@@ -19,7 +19,7 @@ CREATE TABLE t_data_curso_ucs_old AS SELECT * FROM t_data_curso_ucs_new;
 
 CREATE TABLE t_data_avaliacoes(
 	cd_lectivo	VARCHAR2(7), 
-	cd_duracao	VARCHAR2(2), 
+	cd_duracao VARCHAR2(10),
 	cd_aluno	NUMBER(38), 
 	cd_curso_aluno	NUMBER(38), 
 	cd_discip	NUMBER(38), 
@@ -38,7 +38,6 @@ CREATE TABLE t_data_cursos(
 	nm_cur_abr	VARCHAR2(40), 
 	cd_instituic	NUMBER(38), 
 	cd_regime	VARCHAR2(500), 
-	ds_area_estudo	VARCHAR2(100), 
 	ds_grau	VARCHAR2(100), 
 	cd_activo	VARCHAR2(1), 
 	cd_bolonha	VARCHAR2(1), 
@@ -95,7 +94,7 @@ CREATE TABLE t_data_unidades_curriculares(
 	cd_discip  NUMBER(38),
 	ds_discip	VARCHAR2(200),
 	ds_abreviatura	VARCHAR2(15),
-	cd_duracao	VARCHAR2(2),
+	cd_duracao VARCHAR2(10),
 	cd_ramo  NUMBER(38),
 	cd_curso  NUMBER(38),
 	last_changed	TIMESTAMP(6),

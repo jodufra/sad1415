@@ -1,10 +1,11 @@
 -- DATA TABLES
-DROP TABLE t_fact_lineofsale;
-DROP TABLE t_dim_promotion;
-DROP TABLE t_dim_product;
-DROP TABLE t_dim_store;
-DROP TABLE t_dim_date;
-DROP TABLE t_dim_time;
+DROP TABLE t_fact_inscricao;
+DROP TABLE t_fact_avaliacao;
+DROP TABLE t_dim_cursos;
+DROP TABLE t_dim_estudantes;
+DROP TABLE t_dim_tipos_inscricao;
+DROP TABLE t_dim_unidades_curriculares;
+DROP TABLE t_dim_epoca_avaliacao;
 
 -- EXTERNAL TABLES
 DROP TABLE t_ext_dates;

@@ -3,11 +3,13 @@ DROP TABLE t_lookup_calories;
 DROP TABLE t_lookup_pack_dimensions;
 
 -- DATA TABLES
-DROP TABLE t_clean_linesofsale;
-DROP TABLE t_clean_sales;
-DROP TABLE t_clean_promotions;
-DROP TABLE t_clean_stores;
-DROP TABLE t_clean_products;
+DROP TABLE t_clean_avaliacoes;
+DROP TABLE t_clean_cursos;
+DROP TABLE t_clean_estudantes;
+DROP TABLE t_clean_inscricoes;
+DROP TABLE t_clean_tipos_inscricao;
+DROP TABLE t_clean_unidades_curriculares;
+DROP TABLE t_clean_epoca_avaliacao;
 
 -- TRANSFORMATION ERROR LOGGER TABLES
 DROP TABLE t_tel_schedule;
