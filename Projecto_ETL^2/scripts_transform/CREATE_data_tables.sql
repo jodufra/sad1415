@@ -1,11 +1,10 @@
 CREATE TABLE t_clean_avaliacoes(
-	cd_lectivo VARCHAR2(7), 
+	epoca_natural_key VARCHAR2(20),
 	cd_duracao VARCHAR2(10), 
 	cd_aluno NUMBER(38), 
 	cd_curso_aluno NUMBER(38), 
 	cd_discip NUMBER(38), 
 	cd_plano NUMBER(38), 
-	cd_epoca_aval NUMBER(38), 
 	ds_epoca_aval VARCHAR2(50), 
 	nr_avalia NUMBER(38) 
 );
@@ -30,7 +29,7 @@ CREATE TABLE t_clean_estudantes(
 );
 
 CREATE TABLE t_clean_inscricoes(
-	cd_lectivo VARCHAR2(7),
+	epoca_natural_key VARCHAR2(20),
 	cd_curso_aluno NUMBER(38),
 	cd_plano NUMBER(38),
 	cd_ramo NUMBER(38),
@@ -40,7 +39,6 @@ CREATE TABLE t_clean_inscricoes(
 	cd_tipo_insc NUMBER(38),
 	ds_tipo_insc VARCHAR2(50),
 	ects FLOAT(126),
-	cd_epoca_aval NUMBER,
 	ds_epoca_aval VARCHAR2(50)
 );
 

@@ -1,5 +1,5 @@
-DROP SEQUENCE seq_dim_store;
-DROP SEQUENCE seq_dim_product;
-DROP SEQUENCE seq_dim_promotion;
-
-
+DROP SEQUENCE seq_dim_curso;
+DROP SEQUENCE seq_dim_estudante;
+DROP SEQUENCE seq_dim_tipo_inscricao;
+DROP SEQUENCE seq_dim_unidade_curricular;
+DROP SEQUENCE seq_dim_epoca_avaliacao;

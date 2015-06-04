@@ -1,6 +1,4 @@
 -- LOOKUP TABLES
-DROP TABLE t_lookup_calories;
-DROP TABLE t_lookup_pack_dimensions;
 
 -- DATA TABLES
 DROP TABLE t_clean_avaliacoes;
